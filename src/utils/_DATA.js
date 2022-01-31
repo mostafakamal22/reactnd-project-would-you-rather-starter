@@ -1,8 +1,21 @@
+import icon1 from "../img/users-avatars/icon1.png"
+import icon2 from "../img/users-avatars/icon2.png"
+import icon3 from "../img/users-avatars/icon3.png"
+import icon4 from "../img/users-avatars/icon4.png"
+import icon5 from "../img/users-avatars/icon5.png"
+
+export let avatarURLs = {
+  icon1,
+  icon2,
+  icon3,
+  icon4,
+  icon5
+}
 let users = {
   sarahedo: {
     id: 'sarahedo',
     name: 'Sarah Edo',
-    avatarURL: ,
+    avatarURL: avatarURLs.icon5,
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -14,7 +27,7 @@ let users = {
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    avatarURL: ,
+    avatarURL: avatarURLs.icon2,
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -24,7 +37,7 @@ let users = {
   johndoe: {
     id: 'johndoe',
     name: 'John Doe',
-    avatarURL: ,
+    avatarURL: avatarURLs.icon4,
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',
@@ -131,11 +144,11 @@ export function _getQuestions () {
   })
 }
 
-function formatQuestion ({ optionOneText, optionTwoText, author }) {
+function formatQuestion ({ optionOneText, optionTwoText, authed }) {
   return {
     id: generateUID(),
     timestamp: Date.now(),
-    author,
+    author:authed,
     optionOne: {
       votes: [],
       text: optionOneText,
@@ -147,9 +160,39 @@ function formatQuestion ({ optionOneText, optionTwoText, author }) {
   }
 }
 
+function formatUser (user) {
+  return {
+    [user.id]: {
+      id: user.id,
+      name: user.name,
+      avatarURL: user.avatar,
+      answers: {},
+      questions: []
+    }
+  }
+}
+
+export function _createNewUser (user) {
+  return new Promise((res, rej) => {
+    
+    const formattedUser = formatUser(user);
+
+    setTimeout(() => {
+    
+      users = {
+        ...users,
+        ...formattedUser
+      }
+
+      res(formattedUser)
+    }, 1000)
+  })
+} 
+
 export function _saveQuestion (question) {
   return new Promise((res, rej) => {
-    const authedUser = question.author;
+    
+    const authedUser = question.authed;
     const formattedQuestion = formatQuestion(question);
 
     setTimeout(() => {
@@ -171,7 +214,10 @@ export function _saveQuestion (question) {
   })
 }
 
-export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
+export function _saveQuestionAnswer (answer) {
+  const authedUser= answer.authed
+  const question_id = answer.question_id
+  const selectedOption =answer.selectedOption
   return new Promise((res, rej) => {
     setTimeout(() => {
       users = {
@@ -180,18 +226,18 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
           ...users[authedUser],
           answers: {
             ...users[authedUser].answers,
-            [qid]: answer
+            [question_id]: selectedOption
           }
         }
       }
 
       questions = {
         ...questions,
-        [qid]: {
-          ...questions[qid],
-          [answer]: {
-            ...questions[qid][answer],
-            votes: questions[qid][answer].votes.concat([authedUser])
+        [question_id]: {
+          ...questions[question_id],
+          [selectedOption]: {
+            ...questions[question_id][selectedOption],
+            votes: questions[question_id][selectedOption].votes.concat([authedUser])
           }
         }
       }
