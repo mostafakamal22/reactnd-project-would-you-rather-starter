@@ -20,7 +20,7 @@ class QuestionOverview extends Component {
                     <Button variant='outline-dark'>
                         <Link
                             className='text-decoration-none poll'  
-                            to={{pathname:`/questions/${qID}`}}>
+                            to={{pathname:`/would-you-rather-starter/questions/${qID}`}}>
                             View Poll 
                         </Link>
                     </Button>

@@ -69,7 +69,7 @@ class NewQuestion extends Component {
                             type="submit">
                             Submit Question
                         </Button>
-                        {questionSubmitted &&  <Redirect to="/" /> }
+                        {questionSubmitted &&  <Redirect to="/would-you-rather-starter" /> }
                     </Form>
                 </Row>
                 

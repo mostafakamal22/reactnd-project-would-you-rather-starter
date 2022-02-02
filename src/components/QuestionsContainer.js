@@ -67,7 +67,7 @@ class QuestionsContainer extends Component {
                     <Alert style={{maxWidth:700, fontWeight:"bold"}} className='p-2 my-3 text-center mx-auto border shadow rounded' variant='success'>
                         <p>WOW! You Have Answered All Available Questions.</p>
                         <p>There are no more questions for now!</p>
-                        <p>Try creating your own questions from <Link to='/add'>Here</Link></p>
+                        <p>Try creating your own questions from <Link to='/would-you-rather-starter/add'>Here</Link></p>
                     </Alert>
                 )}
             </Container>

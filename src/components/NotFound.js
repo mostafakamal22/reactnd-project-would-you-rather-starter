@@ -9,7 +9,7 @@ export default function NotFound() {
             <Row style={{maxWidth:700}} className='text-center mx-auto'>
                 <Alert style={{fontWeight:"bold"}} variant='danger'>
                     <h1>404 - Not Found!</h1>
-                    <Link to="/">Go Home</Link>
+                    <Link to="/would-you-rather-starter">Go Home</Link>
                 </Alert>
             </Row>
         </Container>

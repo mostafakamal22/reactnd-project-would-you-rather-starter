@@ -12,23 +12,29 @@ code {
     monospace;
 }
 
-.nav-item .shadow{
+.nav-item .text-decoration-none{
   color: rgb(0, 0, 0);
+  font-weight: bold;
 }
 
-.nav-item [data-active=true]{
+[data-active=true]{
   background: rgba(33, 37, 41,1);
   color: rgb(255, 255, 255);
 }
 
-.nav-item .shadow:hover{
-  background: rgb(0, 0, 0);
+[data-active=true] .text-decoration-none{
   color: rgb(255, 255, 255);
 }
 
-.poll:hover{
-  color:black;
+[data-active]:hover{
+  background: rgb(0, 0, 0);
 }
+
+[data-active]:hover a{
+  color: white;
+}
+
+
 .poll:hover{
   color:white;
 }
@@ -39,4 +45,22 @@ code {
   background-repeat:no-repeat;
   background-position: 100% 0;
   background-color: rgb(255, 255, 138);
+}
+
+@media only screen and (max-width:768px){
+  #left-nav-col{
+    justify-content: center !important;
+    margin-top: .8rem;
+  }
+
+  #right-nav-col{
+    margin-top: 1.5rem;
+  }
+}
+
+@media only screen and (max-width:576px){
+  div.p-3{
+    padding: 0.25rem !important;
+  }
+
 }
