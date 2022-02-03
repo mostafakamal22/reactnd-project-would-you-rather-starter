@@ -22,9 +22,9 @@ function NavBar(props){
                     className='d-flex justify-content-start align-items-center'
                     sm={12} xs={12} md={8}>
                         <Nav.Item
-                            data-active={path==="/would-you-rather-starter"}  
+                            data-active={path==="/would-you-rather-starter/"}  
                             className='mx-2 p-3 rounded text-center'>
-                            <Link  className="text-decoration-none" to="/would-you-rather-starter" >
+                            <Link  className="text-decoration-none" to="/would-you-rather-starter/" >
                                 Home
                             </Link>
                         </Nav.Item>
@@ -62,7 +62,7 @@ function NavBar(props){
                         
                         
                         <Nav.Item  className="mx-2">
-                            <Link to="/would-you-rather-starter">
+                            <Link to="/would-you-rather-starter/">
                                 <Button
                                 style={{fontWeight:"bold"}} 
                                 className='rounded'

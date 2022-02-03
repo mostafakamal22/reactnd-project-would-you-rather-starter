@@ -22,7 +22,7 @@ class App extends Component {
         <LoadingBar style={{ backgroundColor:"hsl(192, 94%, 30%)", height: '4px', position: "absolute" }}/>
         {authedUser.authed !== null && authedUser.authed !== undefined ?
         (  <Switch>
-            <Route exact path="/would-you-rather-starter">
+            <Route exact path="/would-you-rather-starter/">
               <NavBar />
               <QuestionsContainer />
             </Route>
@@ -49,7 +49,7 @@ class App extends Component {
 
           </Switch>): (
             <Switch>
-              <Route  path="/would-you-rather-starter">
+              <Route  path="/would-you-rather-starter/">
                 <SignIn />
               </Route>
             </Switch>
