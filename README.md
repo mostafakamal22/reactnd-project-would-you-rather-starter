@@ -10,11 +10,8 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="" alt="project-screenshot" width="400" height="400/">
+<img src="https://mostafakamal22.github.io/img/projects/would-you-rather.webp" alt="project-screenshot" width="375" height="700">
 
-<img src="" alt="project-screenshot" width="400" height="400/">
-
-  
   
 <h2>🧐 Features</h2>
 
